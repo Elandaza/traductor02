@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traductor</title>
+</head>
+<body>
+    
+    <h1>Traductor simple</h1>
+    <form method="POST">
+        <input type="text" name="text" placeholder="Introduce el texto aquí" required>
+        <select name="language">
+            <option value="en">Inglés</option>
+            <option value="es">Español</option>
+            <option value="fr">Francés</option>
+            <option value="de">Alemán</option>
+            <!-- Añade aquí más opciones de idioma según tus necesidades -->
+        </select>
+        <input type="submit" value="Traducir">
+    </form>
+
+    {% if translated_text %}
+    <h2>Texto traducido:</h2>
+    <p>{{ translated_text }}</p>
+    {% endif %}
+
+    {% if lang_detected %}
+    <h2>Idioma de entrada detectado:</h2>
+    <p>{{ lang_detected }}</p>
+    {% endif %}
+</body>
+</html>

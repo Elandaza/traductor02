@@ -46,7 +46,7 @@ def home():
     if request.method == 'POST':
         text = request.form['text']
         source_language = detect_language(text)
-        translated_text = translate_text(text, 'en')  # Cambia 'en' por el idioma objetivo deseado
+        translated_text = translate_text(text, source_language)  # Cambia 'en' por el idioma objetivo deseado
         
         return render_template('home.html', translated_text=translated_text, lang_detected=source_language)
     

@@ -26,8 +26,8 @@ def detect_language(text):
     language = result[0]['language']
     return language
 
-def translate_text(text, target_language):
-    api_url = translator_endpoint + '/translate?api-version=3.0&to=' + target_language
+def translate_text(text, source_language, target_language):
+    api_url = translator_endpoint + '/translate?api-version=3.0&from=' + source_language + '&to=' + target_language
     headers = {
         'Ocp-Apim-Subscription-Key': cog_key,
         'Ocp-Apim-Subscription-Region': cog_region,

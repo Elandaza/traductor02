@@ -42,16 +42,18 @@ def translate_text(text, source_language, target_language):
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         text = request.form['text']
         source_language = detect_language(text)
-        target_language = 'en'  # Cambia 'en' por el idioma objetivo deseado
+        target_language = request.form['language']  # Obtiene el idioma objetivo seleccionado en el formulario
         translated_text = translate_text(text, source_language, target_language)
         
         return render_template('home.html', translated_text=translated_text, lang_detected=source_language)
     
     return render_template('home.html')
+
 
 
 if __name__ == "__main__":

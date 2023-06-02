@@ -1,12 +1,20 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Traductor</title>
     <style>
         body {
-            background-image: url('14918510139727.jpg');
+            background-image: url('ruta-de-la-imagen.jpg');
             background-size: cover;
             font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-top: 100px;
         }
 
         h1 {
@@ -14,16 +22,12 @@
             color: #333;
             text-align: center;
             text-transform: uppercase;
-            margin-top: 50px;
+            margin-bottom: 20px;
         }
 
         form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         input[type="text"], select {
@@ -46,41 +50,41 @@
             width: 100%;
         }
 
-        h2 {
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
-        }
-
-        p {
+        .translated-text {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
             font-size: 18px;
-            color: #666;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    
-    <h1>Cloud traslate services</h1>
-    <form method="POST">
-        <input type="text" name="text" placeholder="Introduce el texto aquí" required>
-        <select name="language">
-            <option value="en">Inglés</option>
-            <option value="es">Español</option>
-            <option value="fr">Francés</option>
-            <option value="de">Alemán</option>
-            <!-- Añade aquí más opciones de idioma según tus necesidades -->
-        </select>
-        <input type="submit" value="Traducir">
-    </form>
+    <div class="container">
+        <h1>CLOUD TRASLATOR SERVICE</h1>
+        <form method="POST">
+            <input type="text" name="text" placeholder="Introduce el texto aquí" required>
+            <select name="language">
+                <option value="en">Inglés</option>
+                <option value="es">Español</option>
+                <option value="fr">Francés</option>
+                <option value="de">Alemán</option>
+                <!-- Añade aquí más opciones de idioma según tus necesidades -->
+            </select>
+            <input type="submit" value="Traducir">
+        </form>
 
-    {% if translated_text %}
-    <h2>Texto traducido:</h2>
-    <p>{{ translated_text }}</p>
-    {% endif %}
+        {% if translated_text %}
+        <div class="translated-text">
+            <h2>Texto traducido:</h2>
+            <p>{{ translated_text }}</p>
+        </div>
+        {% endif %}
 
-    {% if lang_detected %}
-    <h2>Idioma de entrada detectado:</h2>
-    <p>{{ lang_detected }}</p>
-    {% endif %}
+        {% if lang_detected %}
+        <h2>Idioma de entrada detectado:</h2>
+        <p>{{ lang_detected }}</p>
+        {% endif %}
+    </div>
 </body>
 </html>
